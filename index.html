@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Task Arithmetic can Mitigate Synthetic-to-Real Gap in Automatic Speech Recognition"
+    />
+    <meta name="keywords" content="Task Vector, ASR, Domain Adaptation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Task Arithmetic can Mitigate Synthetic-to-Real Gap in Automatic Speech
+      Recognition
+    </title>
+
+    <!-- Google Analytics -->
+    <script async src=""></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "");
+    </script>
+
+    <!-- Fonts and Stylesheets -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="icon" href="./static/images/favicon.svg" />
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Task Arithmetic can Mitigate <nobr>Synthetic-to-Real</nobr> Gap
+                in Automatic Speech Recognition
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"
+                  ><a href="https://github.com/jacksukk">Hsuan Su</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block"
+                  ><a href="https://github.com/FarnHua">Hua Farn</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block"
+                  ><a href="https://sunfanyun.com">Fan-Yun Sun</a
+                  ><sup>2</sup>,</span
+                >
+                <span class="author-block"
+                  ><a href="https://www.csie.ntu.edu.tw/~stchen/"
+                    >Shang-Tse Chen</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block"
+                  ><a href="https://speech.ee.ntu.edu.tw/~hylee/index.php"
+                    >Hung-yi Lee</a
+                  ><sup>1</sup>,</span
+                >
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"
+                  ><sup>1</sup>National Taiwan University</span
+                >
+                <span class="author-block"
+                  ><sup>2</sup>Stanford University</span
+                >
+              </div>
+              <div class="publication-links">
+                <span class="link-block">
+                  <a
+                    href="https://arxiv.org/abs/2406.02925"
+                    class="external-link button is-normal is-rounded is-dark"
+                  >
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a
+                    href=""
+                    class="external-link button is-normal is-rounded is-dark"
+                  >
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code (TBA)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Synthetic data is widely used in speech recognition due to the
+                availability of text-to-speech models, which facilitate adapting
+                models to previously unseen text domains. However, existing
+                methods suffer in performance when they fine-tune an automatic
+                speech recognition (ASR) model on synthetic data as they suffer
+                from the distributional shift commonly referred to as the
+                synthetic-to-real gap.
+              </p>
+              <p>
+                In this paper, we find that task vector arithmetic is effective
+                at mitigating this gap. Our proposed method, SYN2REAL task
+                vector, shows an average improvement of 10.03% in word error
+                rate over baselines on the SLURP dataset.
+              </p>
+              <p>
+                Additionally, we show that an average of SYN2REAL task vectors,
+                when we have real speeches from multiple different domains, can
+                further adapt the original ASR model to perform better on the
+                target text domain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <!-- What is SYN2REAL Task Vector? Section -->
+            <h2 class="title is-3">What is SYN2REAL Task Vector?</h2>
+            <div class="box">
+              <div class="content has-text-justified">
+                <img
+                  src="./static/images/motivation.png"
+                  alt="SYN2REAL Task Vector"
+                  width="100%"
+                />
+                <p>
+                  <strong>Overview of the SYN2REAL Task Vector.</strong> The
+                  pre-trained model is fine-tuned on source domain synthetic and
+                  real speech data, separately. The difference between their
+                  parameters forms the SYN2REAL task vector. The SYN2REAL task
+                  vector is then added to a model fine-tuned on target synthetic
+                  data to overcome the synthetic-to-real gap.
+                </p>
+              </div>
+            </div>
+
+            <!-- Divider between sections -->
+            <hr class="my-6" />
+
+            <!-- How to get SYN2REAL Task Vector? Section -->
+            <h2 class="title is-3">How to get SYN2REAL Task Vector?</h2>
+            <div class="box">
+              <div class="content has-text-justified">
+                <img
+                  src="./static/images/method.png"
+                  alt="Framework for SYN2REAL Task Vector"
+                  width="100%"
+                />
+                <p>
+                  <strong
+                    >Framework for SYN2REAL Task Vector in Domain Adaptation for
+                    ASR.</strong
+                  >
+                  The framework illustrates the process of creating the SYN2REAL
+                  task vector by subtracting the parameter differences between a
+                  model fine-tuned on synthetic speech (Source Synthetic) and a
+                  model fine-tuned on real speech (Source Real) from pretrained
+                  ASR (PASR). This task vector is then applied to the target
+                  synthetic domain (Target Synthetic) to improve ASR performance
+                  by bridging the gap between synthetic and real speech data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@misc{su2024taskarithmeticmitigatesynthetictoreal,
+  title={Task Arithmetic can Mitigate Synthetic-to-Real Gap in Automatic Speech Recognition}, 
+  author={Hsuan Su and Hua Farn and Fan-Yun Sun and Shang-Tse Chen and Hung-yi Lee},
+  year={2024},
+  eprint={2406.02925},
+  archivePrefix={arXiv},
+  primaryClass={eess.AS},
+  url={https://arxiv.org/abs/2406.02925}, 
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="https://github.com/sunfanyunn">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  >Creative Commons Attribution-ShareAlike 4.0 International
+                  License</a
+                >.
+              </p>
+              <p>
+                The style of this website is borrowed from
+                <a href="https://nerfies.github.io/">this website</a>. You are
+                free to borrow the source code, we just ask that you link back
+                to this page in the footer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
