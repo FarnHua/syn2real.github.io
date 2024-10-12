@@ -101,11 +101,11 @@
                 </span>
                 <span class="link-block">
                   <a
-                    href=""
+                    href="https://github.com/jacksukk/SYN2REAL?tab=readme-ov-file&fbclid=IwY2xjawF3ZO9leHRuA2FlbQIxMAABHYIUF-oUyhQi9dKDbqSC9Jm8o-aAKZJMCaYDYOOutGaA-G87ZPmWuWMtrw_aem_V-fD6kxyO1Lg_3L0XXw0TQ"
                     class="external-link button is-normal is-rounded is-dark"
                   >
                     <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code (TBA)</span>
+                    <span>Code</span>
                   </a>
                 </span>
               </div>
@@ -142,6 +142,19 @@
                 further adapt the original ASR model to perform better on the
                 target text domain.
               </p>
+              <img
+                src="./static/images/syn2real.gif"
+                alt="SYN2REAL Task Vector"
+                width="100%"
+              />
+              <p>
+                <strong>Overview of the SYN2REAL Task Vector.</strong> The
+                pre-trained model is fine-tuned on source domain synthetic and
+                real speech data, separately. The difference between their
+                parameters forms the SYN2REAL task vector. The SYN2REAL task
+                vector is then added to a model fine-tuned on target synthetic
+                data to overcome the synthetic-to-real gap.
+              </p>
             </div>
           </div>
         </div>
@@ -150,14 +163,14 @@
 
     <section class="section">
       <div class="container is-max-desktop">
-        <div class="columns is-centered">
+        <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
             <!-- What is SYN2REAL Task Vector? Section -->
-            <h2 class="title is-3">What is SYN2REAL Task Vector?</h2>
-            <div class="box">
+            <!-- <h2 class="title is-3">What is SYN2REAL Task Vector?</h2> -->
+            <!-- <div class="box">
               <div class="content has-text-justified">
                 <img
-                  src="./static/images/motivation.png"
+                  src="./static/images/syn2real.gif"
                   alt="SYN2REAL Task Vector"
                   width="100%"
                 />
@@ -170,35 +183,158 @@
                   data to overcome the synthetic-to-real gap.
                 </p>
               </div>
-            </div>
+            </div> -->
 
             <!-- Divider between sections -->
-            <hr class="my-6" />
-
+            <!-- <hr class="my-6" /> -->
             <!-- How to get SYN2REAL Task Vector? Section -->
-            <h2 class="title is-3">How to get SYN2REAL Task Vector?</h2>
-            <div class="box">
-              <div class="content has-text-justified">
+            <h2
+              class="title is-3"
+              style="
+                background-color: #f3f3f3;
+                width: 100%;
+                display: block;
+                height: 60px;
+                line-height: 60px;
+              "
+            >
+              Domain Mismatch in ASR Domain Adaptation
+            </h2>
+            <!-- <div class="box"> -->
+            <div class="content has-text-justified">
+              <div style="text-align: center">
+                <figure id="figure-2" style="margin: 20px 0; text-align: center;"></figure>
                 <img
-                  src="./static/images/method.png"
-                  alt="Framework for SYN2REAL Task Vector"
-                  width="100%"
+                  src="./static/images/domain_shift.png"
+                  alt="Main Results"
+                  width="70%"
+                  style="display: block; margin-left: auto; margin-right: auto"
                 />
-                <p>
-                  <strong
-                    >Framework for SYN2REAL Task Vector in Domain Adaptation for
-                    ASR.</strong
-                  >
-                  The framework illustrates the process of creating the SYN2REAL
-                  task vector by subtracting the parameter differences between a
-                  model fine-tuned on synthetic speech (Source Synthetic) and a
-                  model fine-tuned on real speech (Source Real) from pretrained
-                  ASR (PASR). This task vector is then applied to the target
-                  synthetic domain (Target Synthetic) to improve ASR performance
-                  by bridging the gap between synthetic and real speech data.
-                </p>
+                <figcaption style="margin-top: 10px; font-style: italic">
+                  Figure 2: Domain Shifts in ASR Domain Adaptation
+                </figcaption>
+                </figure>
               </div>
+              <!-- create a transparent line -->
+              <p>
+                <br />
+              </p>
+
+              <p>
+                In the context of automatic speech recognition (ASR) domain
+                adaptation, domain mismatch can be broadly classified into three
+                categories:
+              </p>
+              <ol>
+                <li>
+                  <strong>Acoustic Variation Mismatch</strong>: This mismatch
+                  refers to differences in speech caused by variations in
+                  acoustic properties.
+                </li>
+                <li>
+                  <strong>Textual Topic Mismatch</strong>: This mismatch
+                  involves discrepancies in the subject matter or style of the
+                  textual content.
+                </li>
+                <li>
+                  <strong>Synthetic vs. Real Speech Mismatch</strong>: This
+                  mismatch refers to the acoustic differences between
+                  synthesized speech generated from text and actual spoken
+                  speech.
+                </li>
+              </ol>
+              <p>
+                In this work, we aim to adapt ASR models from source textual
+                domains with real speech and text data to a new textual domain
+                with only text data. We leverage data synthesized from
+                off-the-shelf text-to-speech (TTS) systems to address this
+                textual topic mismatch. <a href="#figure-2">Figure 2</a> illustrates the domain shifts
+                we focused on in ASR adaptation, depicting the challenges of
+                bridging both the textual gap (source vs. target domain) and the
+                acoustic gap (synthetic vs. real speech). While previous works
+                have shown that adapting ASR models using synthetic data
+                effectively addresses textual topic mismatch, ASR models trained
+                on synthetic data often underperform compared to those trained
+                on real data due to mismatches between synthetic and real
+                speech. To overcome this limitation, we propose the SYN2REAL
+                task vector, a novel approach designed to bridge the acoustic
+                gap between synthetic and real speech data, enhancing the
+                performance of ASR models in domain adaptation.
+              </p>
             </div>
+            <h2
+              class="title is-3"
+              style="
+                background-color: #f3f3f3;
+                width: 100%;
+                display: block;
+                height: 60px;
+                line-height: 60px;
+              "
+            >
+              SYN2REAL Task Vector
+            </h2>
+            <!-- <div class="box"> -->
+            <div class="content has-text-justified">
+              <div style="text-align: center">
+                <figure id="figure-3" style="margin: 20px 0; text-align: center;">
+                  <img
+                    src="./static/images/method.png"
+                    alt="Framework for SYN2REAL task vector in Domain Adaptation for ASR"
+                    style="width: 70%; max-width: 100%; display: block; margin: 0 auto;"
+                  />
+                  <figcaption style="margin-top: 10px; font-style: italic;">
+                    Figure 3: Framework for SYN2REAL task vector in Domain Adaptation for ASR.
+                  </figcaption>
+                </figure>
+              </div>
+                
+                <p style="margin-top: 20px;">
+                  The framework in <a href="#figure-3">Figure 3</a> illustrates the process of creating
+                  the SYN2REAL task vector by subtracting the parameter differences between a model 
+                  fine-tuned on synthetic speech (Source Synthetic) and a model fine-tuned on real 
+                  speech (Source Real) from pretrained ASR (PASR). This task vector is then applied 
+                  to the target synthetic domain (Target Synthetic) to improve ASR performance by 
+                  bridging the gap between synthetic and real speech data.
+                </p>
+            </div>
+            <h2
+              class="title is-3"
+              style="
+                background-color: #f3f3f3;
+                width: 100%;
+                display: block;
+                height: 60px;
+                line-height: 60px;
+              "
+            >
+              Main Results
+            </h2>
+            <!-- <div class="box"> -->
+            <div class="content has-text-justified">
+              <div style="text-align: center">
+                <img
+                  src="./static/images/main_results.png"
+                  alt="Main Results"
+                  width="100%"
+                  style="display: block; margin-left: auto; margin-right: auto"
+                />
+              </div>
+              <figcaption style="margin-top: 10px; text-align: left">
+                <strong
+                  >Table 1: Word Error Rate (WER) Performance Across Various
+                  Target Domains.</strong
+                >
+                Comparison of the baseline Whisper model and the model enhanced
+                with the SYN2REAL task vector generated by BARK. The SYN2REAL
+                task vector shows an average WER reduction of 10.03% across
+                various target domains. Target Synthetic ASR refers to the
+                baseline that is finetuned on 17 domains (excluding the target
+                domain) real+synthetic data followed by synthetic data from the
+                target domains in the SLURP dataset.
+              </figcaption>
+            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -240,7 +376,7 @@
               </p>
               <p>
                 The style of this website is borrowed from
-                <a href="https://nerfies.github.io/">this website</a>. You are
+                <a href="https://www.zjukg.org/project/SafeEdit/">this website</a>. You are
                 free to borrow the source code, we just ask that you link back
                 to this page in the footer.
               </p>
